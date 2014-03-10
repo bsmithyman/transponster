@@ -23,7 +23,12 @@ def index ():
         <title>Transponster</title>
       </head>
       <body>
-        <img src="render.png" border="1" />
+        <p>
+          <img src="render.png" border="1" /><br />
+          <a href="https://github.com/bsmithyman/transponster">
+            github.com/bsmithyman/transponster
+          </a>
+        </p>
       </body>
     </html>
     '''
