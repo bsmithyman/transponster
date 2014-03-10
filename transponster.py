@@ -23,7 +23,7 @@ def index ():
         <title>Transponster</title>
       </head>
       <body>
-        <img src="render.png" />
+        <img src="render.png" border="1" />
       </body>
     </html>
     '''
@@ -49,7 +49,7 @@ def render ():
     model = bson2arr(res['model'])
 
     if model.max() > 0:
-        model = 255 * model / model.max()
+        model = 255 - 255 * model / model.max()
 
     output = StringIO()
     Image.fromarray(model).convert('RGB').save(output, format='PNG')
