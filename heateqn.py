@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 
+from common import *
 
 def disperse (inarr):
     import numpy as np
@@ -29,3 +31,16 @@ def disperse (inarr):
     outarr = inarr + dt * ((left + right - 2*inarr)/dx**2 + (top + bottom - 2*inarr)/dz**2)
 
     return outarr
+
+if __name__ == '__main__':
+
+    db = getmongodb()
+    mcol = db.model
+
+    res = mcol.find_one()
+    model = bson2arr(res['model'])
+
+    model = disperse(model)
+    res['model'] = arr2bson(model)
+
+    mcol.save(res)

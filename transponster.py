@@ -1,19 +1,11 @@
 from flask import Flask, request, redirect, url_for
 
-import os
 import urllib2
 import json
-import pymongo
 import datetime
+from common import *
 
 mutelist = ['127.0.0.1']
-
-def getmongodb ():
-    MONGO_URI = os.environ.get('MONGOHQ_URL')
-    dbname = MONGO_URI.split('/')[-1]
-
-    db = pymongo.MongoClient(MONGO_URI)[dbname]
-    return db
 
 db = getmongodb()
 
