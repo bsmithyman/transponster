@@ -4,7 +4,7 @@ import numpy as np
 from common import *
 
 def perturb (model, lat, lng):
-    z = np.round(float(lat) + 90)
+    z = np.round(90 - float(lat))
     x = np.round(float(lng) + 180)
     model[z,x] = model[z,x] + 1
 
