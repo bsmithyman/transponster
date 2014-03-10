@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, url_for, make_response
-from proxyfix import *
+from werkzeug.contrib.fixers import ProxyFix
 
 import urllib2
 import json
@@ -13,7 +13,7 @@ mutelist = ['127.0.0.1']
 db = getmongodb()
 
 app = Flask(__name__)
-app.request_class = SaferProxyFix
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 @app.route('/index')
 def index ():
