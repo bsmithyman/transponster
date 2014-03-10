@@ -17,8 +17,18 @@ app.wsgi_app = ProxyFix(app.wsgi_app)
 
 @app.route('/index')
 def index ():
-    numentries = db.ip.count()
-    return 'Number of entries: %d'%(numentries,)
+    content = '''
+    <html>
+      <head>
+        <title>Transponster</title>
+      </head>
+      <body>
+        <img src="render.png" />
+      </body>
+    </html>
+    '''
+
+    return content
 
 @app.route('/')
 def ip ():
