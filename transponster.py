@@ -13,7 +13,7 @@ mutelist = ['127.0.0.1']
 db = getmongodb()
 
 app = Flask(__name__)
-app.request_class = ProxiedRequest
+app.request_class = SaferProxyFix
 
 @app.route('/index')
 def index ():
